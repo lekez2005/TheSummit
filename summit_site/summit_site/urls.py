@@ -3,10 +3,11 @@ from django.conf.urls import patterns, include, url
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 from tastypie.api import Api
-from api.resources import ContentResource
+from api.resources import ContentResource, UserResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(ContentResource())
+v1_api.register(UserResource())
 
 admin.autodiscover()
 

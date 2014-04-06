@@ -1,7 +1,6 @@
 import datetime
 from django.db import models
 from django.contrib.auth.models import User
-from djangotoolbox.fields import DictField
 from django.utils import timezone
 #from djangotoolbox.fields import ListField
 
@@ -65,9 +64,6 @@ class BoK(models.Model):
     author = models.ForeignKey(User)
     headline = models.TextField()
     pub_date = models.DateTimeField('date published')
-    arguments = models.TextField()
-    support = models.TextField()
-    citations = models.TextField()
 
     BOK_TYPES = (
         ('D', 'Declaration'),
@@ -86,6 +82,17 @@ class BoK(models.Model):
 
     def __unicode__(self):
         return self.headline
+
+
+class Attachment(models.Model):
+    attachment = models.FileField(upload_to='attachments')
+    bok = models.ForeignKey(BoK)
+
+
+class Argument(models.Model):
+    text = models.TextField()
+    citation = models.TextField()
+    bok = models.ForeignKey(BoK)
 
 
 

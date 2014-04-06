@@ -12,13 +12,13 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_mongodb_engine', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'hackathonFakeData',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'summit',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'niels',
-        'PASSWORD': '',
-        'HOST': 'mongodb://niels:summit@oceanic.mongohq.com:10006/hackathonFakeData',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'USER': 'admin',
+        'PASSWORD': 'hackny',
+        'HOST': '162.243.250.155',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
     }
 }
 
@@ -36,7 +36,7 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-SITE_ID = '5340d425ebcf9292a8e47298'
+SITE_ID = '1'
 #SITE_ID = '532e04ee6d081c05ad62f836'
 
 #path name for the project root
@@ -126,13 +126,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangotoolbox',
+    'tastypie',
     'summit_app',
     'django_extensions',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'djangotoolbox',
+    'south',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
